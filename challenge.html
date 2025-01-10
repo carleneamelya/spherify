@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>spherify.</title>
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- feather icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- styles -->
+    <link rel="stylesheet" href="challenge.css" />
+  </head>
+
+  <body>
+    <!-- navbar start -->
+    <nav class="navbar">
+      <!-- logo -->
+      <a href="#" class="navbar-logo">
+        <img src="img/spherifylogo.png" alt="Spherify Logo" />
+      </a>
+
+      <!-- center navbar -->
+      <div class="navbar-nav">
+        <a href="index.html">Home</a>
+        <a href="feature.html">Feature</a>
+        <a href="resource.html">Resource</a>
+        <a href="aboutus.html">About us</a>
+      </div>
+
+      <!-- navbar 3 icons -->
+      <div class="navbar-extra"></div>
+    </nav>
+    <!-- navbar end -->
+
+    <!-- challenge generator section start -->
+    <div class="container">
+      <h1>Sustainable Challenge Generator</h1>
+      <form id="challenge-form">
+        <label for="name">Your Name:</label><br />
+        <input type="text" id="name" name="name" required /><br /><br />
+
+        <label for="interest">Select Your Interest:</label><br />
+        <select id="interest" name="interest" required>
+          <option value="">--Choose an interest--</option>
+          <option value="1">Cooking</option>
+          <option value="2">Gardening</option>
+          <option value="3">DIY Projects</option>
+          <option value="4">Fashion</option>
+          <option value="5">Zero-Waste Living</option>
+          <option value="6">Volunteering</option></select
+        ><br /><br />
+
+        <button type="button" onclick="generateChallenge()" id="generate-btn">
+          Generate Challenge
+        </button>
+
+        <!--loading spinner that replace the button during loading -->
+        <div id="loading-spinner" class="spinner" style="display: none">
+          <div class="loader"></div>
+        </div>
+      </form>
+    </div>
+
+    <!-- popup -->
+    <div id="modal-overlay" class="modal-overlay"></div>
+    <div id="modal" class="modal">
+      <h2>Hi, <span id="user-name"></span>!</h2>
+      <h3>
+        <span class="normal-text">You can start by</span>
+      </h3>
+      <div id="challenge-text"></div>
+      <!-- challenge text will be here -->
+      <p>Connected SDGs: <span id="sdgs"></span></p>
+      <button class="close-btn" onclick="closeModal()">Close</button>
+    </div>
+
+    <!-- feather icons-->
+    <script>
+      feather.replace();
+    </script>
+
+    <!-- javascript -->
+    <script src="challenge.js"></script>
+  </body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>spherify.</title>
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- feather icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- styles -->
+    <link rel="stylesheet" href="feature.css" />
+
+    <style>
+      .maincontainer {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        padding: 20px;
+        margin-top: 150px;
+      }
+      .thecard {
+        width: 500px;
+        height: 500px;
+        perspective: 1000px;
+        margin: 10px;
+      }
+      .thefront,
+      .theback {
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        box-sizing: border-box;
+        transition: transform 0.6s;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+      }
+      .theback {
+        transform: rotateY(180deg);
+        background-color: rgba(255, 255, 255, 0.474);
+      }
+      .thecard:hover .thefront {
+        transform: rotateY(180deg);
+      }
+
+      .thecard:hover .theback {
+        transform: rotateY(0deg);
+        font-weight: bold;
+        color: #aedb7c;
+      }
+      h1 {
+        font-size: 25px;
+        margin: 10px 0;
+      }
+      p {
+        font-size: 20px;
+        text-align: center;
+      }
+      .card1 {
+        background-image: url("img/challenge.png");
+      }
+
+      .card2 {
+        background-image: url("img/challenge3.png");
+      }
+
+      .thefront {
+        background-size: cover;
+        background-position: center;
+      }
+
+      /* Mobile and tablet responsiveness */
+      @media (max-width: 768px) {
+        .thecard {
+          width: 160px;
+          height: 240px;
+        }
+        .thecard.thefront {
+          font-size: 10px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .maincontainer {
+          flex-direction: column;
+          align-items: center;
+        }
+        .thecard {
+          width: 150px;
+          height: 220px;
+        }
+        .thecard.thefront {
+          font-size: 10px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- navbar start -->
+    <nav class="navbar">
+      <!-- logo -->
+      <a href="#" class="navbar-logo">
+        <img src="img/spherifylogo.png" alt="Spherify Logo" />
+      </a>
+
+      <!-- center navbar -->
+      <div class="navbar-nav">
+        <a href="index.html">Home</a>
+        <a href="feature.html">Feature</a>
+        <a href="resource.html">Resource</a>
+        <a href="aboutus.html">About us</a>
+      </div>
+
+      <!-- navbar 3 icons -->
+      <div class="navbar-extra">
+        <img src="img/moon.svg" id="icon" />
+        <a href="#" id="hamburger-menu"><i data-feather="menu"></i> </a>
+      </div>
+    </nav>
+    <!-- navbar end -->
+
+    <!-- flipping cards -->
+
+    <div class="maincontainer">
+      <!-- First Card -->
+      <div class="thecard">
+        <div class="thefront card1">
+          <h1>Sustainable Challenge</h1>
+        </div>
+        <a href="challenge.html" target="_self" style="text-decoration: none">
+          <div class="theback">
+            <p>✨Try some challenge based on your interest!✨</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Second Card -->
+      <div class="thecard">
+        <div class="thefront card2">
+          <h1>Habit Tracking</h1>
+        </div>
+        <a href="calendar.html" target="_self" style="text-decoration: none">
+          <div class="theback">
+            <p>🎯Track every good habit of yours!🎯</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- feather icons -->
+    <script>
+      feather.replace();
+    </script>
+
+    <!-- javascript -->
+    <script src="feature.js"></script>
+  </body>
+</html>

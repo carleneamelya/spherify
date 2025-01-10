@@ -1,0 +1,228 @@
+/* light mode colors */
+:root {
+  --primary: #ffffff;
+  --gradient: linear-gradient(45deg, rgb(188, 252, 190), rgb(255, 255, 255));
+  --headerfooter: rgba(155, 255, 102, 0.753);
+  --green: #0c691a;
+  --font: black;
+}
+/* dark mode colors */
+.dark-theme {
+  --primary: black;
+  --gradient: linear-gradient(45deg, rgb(50, 46, 46), rgb(2, 2, 2));
+  --headerfooter: rgba(146, 193, 252, 0.753);
+  --green: rgb(193, 192, 192);
+  --font: white;
+}
+
+/* default browser style for all elements */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  /* ini biar gaada garis kecil disetiap sebelah 3 icon */
+  text-decoration: none;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  background-image: var(--gradient);
+  color: black;
+  /* ini buat panjang websitenya */
+  min-height: 800px;
+}
+
+/* navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 7%;
+  background-color: var(--headerfooter);
+  border-bottom: 1 px solid var(--primary);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  transition: transform 0.5s; /*buat hidden navbar smooth*/
+}
+
+/* ini besar kecil navbar laptop view */
+.nav--hidden {
+  transform: translateY(-150px); /* besar si navbarnya sbnrnya gatau brp lol */
+}
+
+/* logo */
+.navbar .navbar-logo img {
+  width: 100px;
+  max-width: 100%;
+  height: auto;
+}
+
+/* navbar center */
+.navbar .navbar-nav a {
+  color: var(--green);
+  display: inline-block;
+  font-size: 1.3rem;
+  margin: 0 1rem;
+}
+
+/* while hovering text in navbar center */
+.navbar .navbar-nav a:hover {
+  color: var(--primary);
+}
+
+/* appears animation below text */
+.navbar .navbar-nav a::after {
+  content: "";
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid var(--primary);
+  transform: scaleX(0);
+  transition: 0.2s linear;
+  backdrop-filter: blur(32px);
+}
+
+.navbar .navbar-nav a:hover::after {
+  transform: scaleX(0.5);
+}
+
+/* responsive navbar */
+.navbar .navbar-nav-extra a {
+  color: var(--font);
+  margin: 0.5rem;
+}
+/* animation while hovering responsive navbar text  */
+.navbar .navbar-nav-extra a:hover {
+  color: var(--font);
+}
+
+#hamburger-menu {
+  display: none;
+}
+
+/* hero section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+/* drive to thrive */
+.hero .content h1 {
+  font-size: 5rem;
+  color: var(--green);
+  position: relative;
+}
+
+.hero .content h1::before,
+.hero .content h1::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.hero .content h1::before {
+  background: rgb(255, 255, 255);
+  animation: typewriter 2s steps(15) forwards;
+}
+
+.hero .content h1::after {
+  width: 0.125em;
+  background: var(--green);
+  animation: typewriter 2s steps(15) forwards;
+}
+
+@keyframes typewriter {
+  to {
+    left: 100%;
+  }
+}
+
+/* media queries */
+
+/* laptop */
+@media (max-width: 1366px) {
+  html {
+    font-size: 75%;
+  }
+}
+
+/* tablet */
+@media (max-width: 768px) {
+  html {
+    font-size: 62.5%;
+  }
+
+  .navbar .navbar-logo {
+    max-width: 120px;
+  }
+
+  /* munculin hamburger menu */
+  #hamburger-menu {
+    display: inline-block;
+  }
+
+  .navbar .navbar-nav {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: var(--green);
+    width: 30rem;
+    height: 100vh;
+    transition: 0.3s;
+    backdrop-filter: blur(32px);
+  }
+
+  .navbar .navbar-nav.active {
+    right: 0;
+  }
+
+  .navbar .navbar-nav a {
+    color: var(--primary);
+    display: block;
+    margin: 1.5 rem;
+    padding: 1 rem;
+    font-size: 3rem;
+  }
+
+  .navbar .navbar-nav a::after {
+    transform-origin: 0 0;
+  }
+  .navbar .navbar-nav a:hover:after {
+    transform: scaleX(0.2);
+  }
+
+  .hero .content h3 {
+    font-size: 20px;
+  }
+
+  .footer {
+    font-size: 0.9rem; /* Reduce font size */
+    padding: 1rem 0.5rem; /* Adjust padding */
+  }
+}
+
+/* mobile */
+@media (max-width: 450px) {
+  html {
+    font-size: 55%;
+  }
+  .navbar .navbar-logo {
+    max-width: 100px;
+  }
+  .hero .content h3 {
+    font-size: 20px;
+  }
+  .footer {
+    font-size: 0.8rem;
+    padding: 0.8rem 0.5rem;
+  }
+}
